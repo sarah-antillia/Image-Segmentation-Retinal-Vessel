@@ -252,7 +252,7 @@ Please run the following bat file.<br>
 </pre>
 , which simply run the following command.<br>
 <pre>
->python TensorflowUNetRetinal-VesselEvaluator.py
+>python ../../TensorflowUNetTrainer.py ./train_eval_infer.config
 </pre>
 The evaluation result of this time is the following.<br>
 <img src="./asset/evaluate_console_at_epoch_20_0528.png" width="720" height="auto"><br>
@@ -269,7 +269,7 @@ We have also tried to infer the segmented region for <b>mini_test</b> dataset, w
 </pre>
 , which simply runs the following command.<br>
 <pre>
->python TensorflowUNetRetinal-VesselInfer.py
+>python ../../TensorflowUNetInfer.py ./train_eval_infer.config
 </pre>
 
 <b>Input images (mini_test) </b><br>
