@@ -130,16 +130,15 @@ two types of mask png files(*_1stHO.png and *_2ndHO.png) corresponding to each i
 <h3>
 3.2. Generate Retinal-Vessel Image Dataset
 </h3>
- We have created Python script <a href="./projects/Retinal-Vessel/generator/512x512ImageMaskDatasetGenerator.py.py">512x512ImageMaskDatasetGenerator.py</a> to create images and masks dataset which may be used to train our
+ We have created Python script <a href="./projects/Retinal-Vessel/generator/512x512ImageMaskDatasetGenerator.py">512x512ImageMaskDatasetGenerator.py</a> to create images and masks dataset which may be used to train our
  TensorflowUNet model.<br>
  This script will perform following image processing.<br>
  <pre>
- 1 Resize all jpg and png files in <b>CHASEDB1</b> folder to 512x512 square image.
- 2 Split image and mask files in <b>CHASEDB1</b> folder into test, train, valid for our model.
+ 1 Resize all jpg and png files in <b>CHASEDB1</b> folder to 512x512 square images.
+ 2 Split image and mask files in <b>CHASEDB1</b> folder into test, train, valid dataset.
  3 Rotate and flip those image files to augment the original dataset.
-
 </pre>
-
+For simplicity, please note that we have used the <b>2ndHO.png </b> type mask files.<br>
 
 <h3>
 3.3 Generated Retinal-Vessel dataset.<br>
