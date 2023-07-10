@@ -132,16 +132,6 @@ def ssim_loss(y_true, y_pred):
 
     return 1 - tf.image.ssim(y_true_f, y_pred_f, max_val=1)
 
-def bce_iou_loss(y_true, y_pred):
-    bce_loss = BinaryCrossentropy(from_logits=False)
-    bce_loss = bce_loss(y_true, y_pred)
-
-    jac_loss     = jacard_loss(y_true, y_pred)
-
-    loss = bce_loss + jac_loss
-    return loss/2.0
-
-
 def basnet_hybrid_loss(y_true, y_pred):
     """
     Hybrid loss proposed in BASNET (https://arxiv.org/pdf/2101.04704.pdf)
