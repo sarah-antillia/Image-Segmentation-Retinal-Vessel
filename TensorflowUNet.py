@@ -76,7 +76,7 @@ from EpochChangeCallback import EpochChangeCallback
 from GrayScaleImageWriter import GrayScaleImageWriter
 
 from losses import dice_coef, basnet_hybrid_loss, sensitivity, specificity
-from losses import iou_coef, iou_loss, bce_iou_loss
+from losses import iou_coef, iou_loss, bce_iou_loss, dice_loss
 
 """
 See: https://www.tensorflow.org/api_docs/python/tf/keras/metrics
@@ -202,10 +202,21 @@ class TensorflowUNet:
     except:
       pass
 
+    dilations = []
+    (d, d) = dilation
+    for n in range(num_layers):
+      dilations += [(d, d)]
+      d -= 1
+      if d <1:
+        d = 1
+    rdilations =  dilations[::-1]
+    print("=== dilations  {}".format(dilations))
+    print("=== rdilations {}".format(rdilations))
+
     for i in range(num_layers):
       filters = base_filters * (2**i)
       kernel_size = kernel_sizes[i] 
-
+      dilation = dilations[i]
       c = Conv2D(filters, kernel_size, strides=strides, activation=relu, 
                  kernel_initializer='he_normal', dilation_rate=dilation, padding='same')(s)
       # 2023/06/20
@@ -230,6 +241,7 @@ class TensorflowUNet:
     # --- Decoder
     for i in range(num_layers-1):
       kernel_size = rkernel_sizes[i] 
+      dilation = rdilations[i]
 
       f = enc_len - 2 - i
       filters = base_filters* (2**f)

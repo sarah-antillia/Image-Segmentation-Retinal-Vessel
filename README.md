@@ -123,7 +123,7 @@ The folder structure of the dataset is the following.<br>
 </pre>
 The <b>CHASEDB1</b> folder of this dataset contains the ordinary image files (Image_*.jpg) and 
 two types of mask png files(*_1stHO.png and *_2ndHO.png) corresponding to each image jpg file.
-Please note that it contains only 28 jpg Image files of 999x960 pixel size, which is apparently too small to use for our UNet model.<br>
+Please note that it contains only 28 jpg Image files of 999x960 pixel size, which is apparently too few to use for our UNet model.<br>
 <b>CHASEDB1 samples:</b><br>
 <img src="./asset/CHASEDB1.png" width="1024" height="auto">
 <br>
