@@ -371,7 +371,11 @@ class TensorflowUNet:
     for image_file in image_files:
       basename = os.path.basename(image_file)
       name     = basename.split(".")[0]
-      img      = cv2.imread(image_file, cv2.COLOR_BGR2RGB)
+      # <fixed> 2023/07/15 to avoid error on png file
+      img      = cv2.imread(image_file)
+      img      = cv2.cvtColor(img,  cv2.COLOR_BGR2RGB)
+      # </fixed>
+
       h = img.shape[0]
       w = img.shape[1]
       # Any way, we have to resize input image to match the input size of our TensorflowUNet model.

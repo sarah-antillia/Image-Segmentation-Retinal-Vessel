@@ -33,7 +33,6 @@ import sys
 import traceback
 
 from ConfigParser import ConfigParser
-from MultipleMyelomaDataset import MultipleMyelomaDataset
 from ImageMaskDataset import ImageMaskDataset
 #from EpochChangeCallback import EpochChangeCallback
 
